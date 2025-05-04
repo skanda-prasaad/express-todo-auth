@@ -1,0 +1,30 @@
+{
+  "name": "express-todo-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skanda-prasaad/express-todo-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/skanda-prasaad/express-todo-auth/issues"
+  },
+  "homepage": "https://github.com/skanda-prasaad/express-todo-auth#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
