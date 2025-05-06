@@ -20,12 +20,12 @@ app.use("/todos", todoRoutes);
 
 // Handle all routes for SPA
 app.get("*", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 // Start server only if not in Vercel environment
 if (process.env.NODE_ENV !== "production") {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
 
 module.exports = app;

@@ -45,3 +45,4 @@ coverage/
 # Others
 *.bak
 *.tmp
+.vercel
