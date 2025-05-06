@@ -52,7 +52,7 @@ router.post("/", authenticate, async (req, res) => {
 });
 
 // 🟠 PUT: Update a todo
-router.put("/todos/:id", authenticate, async function (req, res) {
+router.put("/:id", authenticate, async function (req, res) {
   const todoID = parseInt(req.params.id);
   const username = req.user.username;
   const { title, completed } = req.body;
@@ -78,7 +78,7 @@ router.put("/todos/:id", authenticate, async function (req, res) {
 });
 
 // 🟥 DELETE: Delete a todo
-router.delete("/todos/:id", authenticate, async function (req, res) {
+router.delete("/:id", authenticate, async function (req, res) {
   const username = req.user.username;
   const todoID = parseInt(req.params.id);
   const todos = await getTodos();
@@ -93,7 +93,6 @@ router.delete("/todos/:id", authenticate, async function (req, res) {
 
   // Remove the todo from the array
   todos.splice(todoIndex, 1);
-
   await saveTodos(todos);
   res.json({ message: "Todo deleted" });
 });

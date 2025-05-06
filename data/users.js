@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
 
 const users = path.join(__dirname, "users.json");
@@ -13,9 +13,9 @@ async function getUser() {
   }
 }
 
-async function saveUser(user) {
+async function saveUser(userList) {
   try {
-    await fs.writeFile(users, JSON.stringify(users, null, 2), "utf-8");
+    await fs.writeFile(users, JSON.stringify(userList, null, 2), "utf-8");
   } catch (err) {
     console.error("Error saving users file:", err);
   }

@@ -2,8 +2,8 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const { getUsers, saveUsers } = require("../data/users");
-const JWT_SECRET = process.env.JWT_SECRET;
+const { getUser, saveUser } = require("../data/users");
+const JWT_SECRET = "superSecret123";
 
 router.post("/signup", async function (req, res) {
   let users = [];
@@ -13,7 +13,7 @@ router.post("/signup", async function (req, res) {
       .status(400)
       .json({ msg: "Username and password are required..." });
   }
-  users = await getUsers();
+  users = await getUser();
   const userExist = users.find((user) => user.username == username);
   if (userExist) {
     return res.status(409).json({ message: "User already exists" });
@@ -23,7 +23,7 @@ router.post("/signup", async function (req, res) {
     username: username,
     password: hashPsw,
   });
-  await saveUsers(users);
+  await saveUser(users);
 
   res.status(201).json({
     message: "User registered successfully",
@@ -41,7 +41,7 @@ router.post("/login", async function (req, res) {
       .json({ msg: "Username and password are required..." });
   }
 
-  users = await getUsers();
+  users = await getUser();
   const existUser = users.find((user) => user.username == username);
 
   if (!existUser) {
